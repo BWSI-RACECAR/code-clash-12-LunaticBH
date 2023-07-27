@@ -30,11 +30,14 @@ class Solution:
     def isBalanced(self, parenthesis): 
             #type parenthesis: string
             #return type: boolean
-            
+            dict = {"(":")", "[":"]", "{":"}"}
             length = len(parenthesis)
+            num = -1
             if length % 2 == 0 and parenthesis[0] == "[" or parenthesis[0] == "{" or parenthesis[0] == "(":
-                for i in range(length):
-                    if parenthesis[i] == "1":
+                for i in range(length/2):
+                    if parenthesis[num] == dict(parenthesis[i]):
+                        num -= 1
+                    else:
                         return False
                 return True
             else:
