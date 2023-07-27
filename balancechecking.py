@@ -32,13 +32,15 @@ class Solution:
             #return type: boolean
             dict = {"(":")", "[":"]", "{":"}"}
             length = len(parenthesis)
+            list = []
 
             if (length+2) % 2 == 0 and "[" in parenthesis or "{" in parenthesis or "(" in parenthesis:
                 for i in range(length):
-                    if parenthesis[i] in dict:
+                    if parenthesis[i] in dict.keys():
                         print(parenthesis[i])
                         for j in range(i,length):
-                            if parenthesis[j] == dict[parenthesis[i]]:
+                            if parenthesis[j] == dict[parenthesis[i]] and parenthesis[j] != list[i]:
+                                list.append(j)
                                 break
                             elif j == length-1:
                                 return False
