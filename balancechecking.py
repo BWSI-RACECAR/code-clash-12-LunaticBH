@@ -40,7 +40,7 @@ class Solution:
                         for j in range(i,length):
                             if parenthesis[j] == dict[parenthesis[i]]:
                                 break
-                            elif j == length:
+                            elif j == length-1:
                                 return False
                             else:
                                 pass
