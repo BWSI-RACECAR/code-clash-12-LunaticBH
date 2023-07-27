@@ -32,7 +32,10 @@ class Solution:
             #return type: boolean
             
             length = len(parenthesis)
-            if length % 2 == 0:
+            if length % 2 == 0 and parenthesis[0] == "[" or parenthesis[0] == "{" or parenthesis[0] == "(":
+                for i in range(length):
+                    if parenthesis[i] == "1":
+                        return False
                 return True
             else:
                 return False
