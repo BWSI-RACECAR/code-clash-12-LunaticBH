@@ -46,7 +46,7 @@ class Solution:
                                 print(list)
                                 break
                             elif parenthesis[j] == dict[parenthesis[i]]:
-                                break
+                                list.remove(parenthesis[j])
                             elif j == length-1:
                                 return False
                             else:
