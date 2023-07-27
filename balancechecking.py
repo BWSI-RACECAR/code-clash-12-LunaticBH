@@ -35,7 +35,7 @@ class Solution:
             num = -1
             if length % 2 == 0 and parenthesis[0] == "[" or parenthesis[0] == "{" or parenthesis[0] == "(":
                 for i in range(int(length/2)):
-                    if parenthesis[num] == dict(parenthesis[i]):
+                    if parenthesis[num] == dict[parenthesis[i]]:
                         num -= 1
                     else:
                         return False
