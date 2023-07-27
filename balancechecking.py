@@ -30,33 +30,17 @@ class Solution:
     def isBalanced(self, parenthesis): 
             #type parenthesis: string
             #return type: boolean
-            dict = {"(":")", "[":"]", "{":"}"}
-            length = len(parenthesis)
-            list = [""]
-            z = 0
-
-            if (length+2) % 2 == 0 and "[" in parenthesis or "{" in parenthesis or "(" in parenthesis:
-                for i in range(length):
-                    if parenthesis[i] in dict.keys():
-                        print(parenthesis[i])
-                        for j in range(i,length):
-                            if parenthesis[j] == dict[parenthesis[i]] and parenthesis[j] not in list:
-                                list.append(parenthesis[j])
-                                z += 1
-                                print(list)
-                                break
-                            elif parenthesis[j] == dict[parenthesis[i]]:
-                                list.remove(parenthesis[j])
-                            elif j == length-1:
-                                return False
-                            else:
-                                pass
-                            print(f"found one {i}")
-                    else:
-                        pass
-                return True
-            else:
-                return False
+            stack = []
+            dict = {"(": ")", "[": "]", "{": "}"}
+        
+            for char in parenthesis:
+                if char in dict.keys():  # Opening parenthesis
+                    stack.append(char)
+                elif char in dict.values():  # Closing parenthesis
+                    if not stack or dict[stack.pop()] != char:
+                        return False
+        
+            return len(stack) == 0
 
 def main():
     str1=input()
